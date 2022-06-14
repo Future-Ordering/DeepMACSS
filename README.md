@@ -1,7 +1,7 @@
 # DeepMACSS
 ## _Deep Modular Analyzer for Creating Semantics and generate code from Sketch_
 
-[![Paper](image to paper)](https://url.to/paper)
+[Link to the provided paper](http://urn.kb.se/resolve?urn=urn:nbn:se:ltu:diva-91238)
 
 DeepMACSS is a method which utilizes a modular approach to enable the usage of AI technology to recognize components drawn within a sketch. It utilizes modularity to be able to utilize any object detection algorithm and standalone code generators. More information provided within the paper mentioned above.
 
@@ -134,6 +134,7 @@ python3 ai_model.py --train --dataset [source_folder] --epochs 7 --new_model_nam
 ```
 #### Extend model
 In order to extend and train a model with a new component the argument `--train_extend` needs to be used.
+##### Due note that the file containing the names of each component (./datasets/labels.txt) needs to be updated with the new name of the component in which is to be supported in order for the system to fully function.
 
 The arguments which can be used for extending the model are:
 * `--new_model_name [Name of the model to be created, required]` 
@@ -187,10 +188,10 @@ The arguments which can be used for making a prediction are:
 Examples:
 ```sh
 # Make a prediction on a image and displaying the semantics to the console
-python3 ai_engine.py --predict --image [source_image] --model_name 'Image-Retrain_v9_SGD-StepLR-2' --model_date 'Apr-10_16-16'
+python3 ai_model.py --predict --image [source_image] --model_name 'Image-Retrain_v9_SGD-StepLR-2' --model_date 'Apr-10_16-16'
 
 # Make a prediction on a image and saving the resulting semantics to a file
-python3 ai_engine.py --predict --image [source_image] --model_name 'Image-Retrain_v9_SGD-StepLR-2' --model_date 'Apr-10_16-16' --destination './website.json'
+python3 ai_model.py --predict --image [source_image] --model_name 'Image-Retrain_v9_SGD-StepLR-2' --model_date 'Apr-10_16-16' --destination './website.json'
 ```
 #### Evaluate
 In order to determine how good or bad the model is performing objectively the argument `--evaluate` can be used. This causes the model to evaluate its performance using Mean Average Precision as described in more detail in the provided paper.
